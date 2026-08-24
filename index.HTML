@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Little Place For You ♡</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+}
+
+html,body{
+  margin:0;
+  padding:0;
+  width:100%;
+  min-height:100%;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  color:#704d5b;
+  background:linear-gradient(
+    180deg,
+    #f4b9d2 0%,
+    #f7c5d0 35%,
+    #ffd3b0 68%,
+    #ffe7b0 100%
+  );
+  overflow-x:hidden;
+}
+
+
+/* =====================
+   LANGIT
+===================== */
+
+.sky{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+}
+
+
+/* matahari */
+
+.sun{
+  position:absolute;
+
+  width:155px;
+  height:155px;
+
+  border-radius:50%;
+
+  background:#ffe5a5;
+
+  left:50%;
+  top:47%;
+
+  transform:translate(-50%,-50%);
+
+  box-shadow:
+    0 0 70px rgba(255,230,170,.8);
+}
+
+
+/* bulan */
+
+.moon{
+  position:absolute;
+
+  width:48px;
+  height:48px;
+
+  right:12%;
+  top:8%;
+
+  background:#fff1ca;
+
+  border-radius:50%;
+
+  box-shadow:
+    0 0 30px rgba(255,255,255,.7);
+}
+
+.moon:after{
+  content:"";
+
+  position:absolute;
+
+  width:44px;
+  height:44px;
+
+  border-radius:50%;
+
+  background:#f4b9d2;
+
+  left:14px;
+  top:-7px;
+}
+
+
+/* bintang */
+
+.star{
+  position:absolute;
+
+  color:white;
+
+  font-size:15px;
+
+  opacity:.8;
+
+  animation:blink 2s infinite;
+}
+
+.s1{
+  top:10%;
+  left:13%;
+}
+
+.s2{
+  top:20%;
+  left:30%;
+  animation-delay:.5s;
+}
+
+.s3{
+  top:12%;
+  left:55%;
+  animation-delay:1s;
+}
+
+.s4{
+  top:27%;
+  right:12%;
+  animation-delay:1.5s;
+}
+
+.s5{
+  top:35%;
+  left:8%;
+  animation-delay:.8s;
+}
+
+@keyframes blink{
+
+  0%,100%{
+    opacity:.3;
+    transform:scale(.8);
+  }
+
+  50%{
+    opacity:1;
+    transform:scale(1.3);
+  }
+
+}
+
+
+/* awan */
+
+.cloud{
+  position:absolute;
+
+  width:140px;
+  height:38px;
+
+  border-radius:50px;
+
+  background:rgba(255,255,255,.45);
+}
+
+.cloud:before{
+  content:"";
+
+  position:absolute;
+
+  width:60px;
+  height:60px;
+
+  border-radius:50%;
+
+  background:inherit;
+
+  left:20px;
+  top:-28px;
+}
+
+.cloud:after{
+  content:"";
+
+  position:absolute;
+
+  width:65px;
+  height:65px;
+
+  border-radius:50%;
+
+  background:inherit;
+
+  right:15px;
+  top:-33px;
+}
+
+.cloud1{
+  left:-40px;
+  top:28%;
+}
+
+.cloud2{
+  right:-45px;
+  top:67%;
+
+  transform:scale(.75);
+}
+
+
+/* =====================
+   HALAMAN
+===================== */
+
+.page{
+  position:relative;
+
+  z-index:5;
+
+  min-height:100vh;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  padding:30px 20px;
+}
+
+.container{
+  width:100%;
+  max-width:440px;
+
+  text-align:center;
+}
+
+
+/* =====================
+   HOME
+===================== */
+
+#home{
+  display:block;
+
+  animation:appear 1s ease;
+}
+
+.tiny{
+  font-size:11px;
+
+  letter-spacing:3px;
+
+  opacity:.65;
+
+  margin-bottom:20px;
+}
+
+h1{
+  font-family:Georgia,serif;
+
+  font-weight:normal;
+
+  font-size:31px;
+
+  color:#684553;
+
+  margin:0 0 18px;
+}
+
+.home-text{
+  font-size:15px;
+
+  line-height:1.8;
+
+  max-width:350px;
+
+  margin:auto;
+}
+
+
+/* tombol */
+
+.start{
+  margin-top:30px;
+
+  padding:14px 27px;
+
+  border:0;
+
+  border-radius:50px;
+
+  background:rgba(255,250,247,.85);
+
+  color:#805465;
+
+  font-size:13px;
+
+  box-shadow:
+    0 10px 25px
+    rgba(100,60,80,.13);
+
+  cursor:pointer;
+
+  transition:.25s;
+}
+
+.start:hover{
+  transform:translateY(-4px);
+}
+
+.start:active{
+  transform:scale(.95);
+}
+
+
+/* =====================
+   SURAT
+===================== */
+
+#letter{
+  display:none;
+
+  animation:appear 1s ease;
+}
+
+.letter{
+  background:rgba(255,252,248,.9);
+
+  padding:30px 23px;
+
+  border-radius:25px;
+
+  box-shadow:
+    0 20px 50px
+    rgba(100,60,80,.17);
+}
+
+.letter-top{
+  font-size:11px;
+
+  letter-spacing:2px;
+
+  opacity:.55;
+
+  margin-bottom:18px;
+}
+
+.letter h2{
+  font-family:Georgia,serif;
+
+  font-weight:normal;
+
+  font-size:27px;
+
+  color:#684553;
+
+  margin:0 0 20px;
+}
+
+p{
+  font-size:14.5px;
+
+  line-height:1.9;
+
+  text-align:left;
+
+  margin:17px 0;
+}
+
+.center{
+  text-align:center;
+
+  font-family:Georgia,serif;
+
+  font-size:17px;
+
+  color:#815465;
+
+  margin:25px 0;
+}
+
+
+/* =====================
+   FINAL
+===================== */
+
+#final{
+  display:none;
+
+  margin-top:25px;
+
+  animation:appear 1s ease;
+}
+
+.final-text{
+  text-align:center;
+
+  font-size:14px;
+
+  line-height:1.9;
+}
+
+.final-big{
+  font-family:Georgia,serif;
+
+  color:#684553;
+
+  font-size:21px;
+}
+
+
+/* kembali */
+
+.back{
+  margin-top:25px;
+
+  border:0;
+
+  background:transparent;
+
+  color:#805465;
+
+  opacity:.6;
+
+  cursor:pointer;
+}
+
+
+@keyframes appear{
+
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- LANGIT -->
+
+<div class="sky">
+
+  <div class="sun"></div>
+
+  <div class="moon"></div>
+
+  <div class="star s1">✦</div>
+  <div class="star s2">✧</div>
+  <div class="star s3">⋆</div>
+  <div class="star s4">✦</div>
+  <div class="star s5">✧</div>
+
+  <div class="cloud cloud1"></div>
+  <div class="cloud cloud2"></div>
+
+</div>
+
+
+
+<!-- HALAMAN -->
+
+<div class="page">
+
+<div class="container">
+
+
+<!-- =====================
+     HALAMAN AWAL
+===================== -->
+
+<div id="home">
+
+  <div class="tiny">
+    a little sunset thought
+  </div>
+
+  <h1>
+    hyee kakaa
+  </h1>
+
+  <div class="home-text">
+
+    i have smth for u kakaa,
+    yang pengen aku kasih tahu kakaa dari kemarin kemarin...
+
+    <br><br>
+
+    ga perlu serius² sihhh..
+    cuma aku pgn bilang sesuatu yg daridulu pengen akuu blg ke kaka
+    dan untuk kaka:o
+
+  </div>
+
+
+  <button
+    class="start"
+    onclick="openLetter()"
+  >
+    tap here ♡
+  </button>
+
+</div>
+
+
+
+<!-- =====================
+     SURAT
+===================== -->
+
+<div id="letter">
+
+<div class="letter">
+
+  <div class="letter-top">
+    just something i wanted you to know
+  </div>
+
+  <h2>
+    for u,kaka
+  </h2>
+
+
+  <p>
+    ak sebenarnya ya, bingung harus mulai dari mana.
+    jdii.. mungkin aku mulai dari hal yang paling sederhana:
+    <b>aku senang kenal kakaa.</b>
+  </p>
+
+
+  <p>
+    ada sesuatu tentang kaka yang bikin aku tuh nyaman tau.
+    kaka tau ga apa?
+    
+    bukan karena siapa kaka atau gimana kaka.atau kaya hal lajn..
+    justru ya, karena hal-hal kecil yang mungkin
+    bahkan ndaa kaka sadari.
+  </p>
+
+
+  <p>
+    tbh,ak tuhh suka cara kaka bicara,tutur kata kaka ke aku.
+    cara kaka ngetreat aku
+    cara kaka bersikap kalau ada suatu masalah atau apapun itu
+    dannn cara kaka tetap sabar walaupun sebenarnya
+    kaka selalu kesell sbnrnya sm akk
+  </p>
+
+
+  <p>
+    aku suka kaka yang dewasa, bukan karna hal dewasa. tapi cara
+    kaka dewasa mnghadapi sesuatu,ataupun cara kaka bersikap berperilaku,
+    yg gaa terlalu egois,
+    gaa gampang marah,
+    kakaa yg selalu ada luangin waktu ke akuu
+    dan gaa semuanya harus
+    selalu tentang diri sendiri.
+  </p>
+
+
+  <p>
+    mgknn kedengarannya kayaa simpleee yaaap
+    tapi kaka tau ga? justru hal kaya gitu tuh yang
+    buat aku semakin suka sama kka..
+  </p>
+
+
+  <div class="center">
+
+    akuu suka kamu bukan karena
+    ada alasan yang rumit.
+
+  </div>
+
+
+  <p>
+    aku suka kaka karena cara kaka menjadi diri kakaa sendiri
+    uda bkin aku tuhh sering senyum² atau salting:(.
+  </p>
+
+
+  <p>
+    kadangg yaa,walauoun kita cuma ngobrol sebentar,
+    tapi gtww yaaa?? kenapa setelahnya
+    aku bisa suka kegirangan sendiri..
+  </p>
+
+
+  <p>
+    tbh ka, aku suka perasaan itu...
+  </p>
+
+
+  <p>
+    akk senang bisa kenal kaka
+    senang pakai baget bisa ngobrol sama kaka.
+    oh ya, aku bahagia karena,
+    di antara banyak orang yang bisa aku temui,
+    aku rupanyaa bisa ketemuu samaa
+    kaka
+  </p>
+
+
+  <div class="center">
+
+    jadii kalau kakaa bertanya tanya,
+    "kenapa aku suka kka?"
+
+    <br><br>
+
+    mungkin jawabannya cuma...
+
+    <br><br>
+
+    <b>karena kaka adalah kaka.</b> ♡
+
+  </div>
+
+
+  <button
+    class="start"
+    onclick="showFinal()"
+  >
+    one last thing...
+  </button>
+
+
+  <div id="final">
+
+    <div class="final-text">
+
+      <p>
+        aku cuma ingin kaka tauuu,
+        kalau tanpa kaka sadari,
+        kakaa pernah jadii alasan
+        kenapa org bs tersenyum karna banhak hal 
+      </p>
+
+      <p>
+        dan orang itu mungkkn
+      </p>
+
+      <p class="final-big">
+        aku??..
+      </p>
+
+      <p>
+        ak tau ko,mgkn ga cm akuu..tapi,yg akh tau,yg akh alami
+        ya aku sendiri kenapa 
+
+       
+        maaf ya ka,kalau kaka gasjka tentang hal ini..kalau misalkan kaka risjh
+        atau apapun..
+        aku cm pgn kaka tau:( kalau ga,aku bakal dihantui terus dg perasaan ini
+        sebenarnya,dari kmrn ak pgn blg ke kaka.cuman,aku takut..aku takut kaka ilfeel atau jijik.
+        that's why kaka.cuman,aku baru berani blg sekarang gapapa yaa?
+
+         aku gatau apa yg kaka rasakan saat ak blg ini,apa yg kaka pandang saat aku krm ini:(
+        aku takut kaka blg ak gmn gmn,soalnya kata org,harusnya cewe jgn confess ya?;(.
+        ak suka sama kaka,apa adanya .. dari hatiku,bukan karna apa apa..ataupun niat jahat..
+        huhu maaf ya ka kalau kaka ngga nyaman dg hal inii T___T 
+      </p>
+
+      <p>
+        terimakasih kaka,untuk selalu ada buat aku saat ak senenh atauu sedii atau maraa
+        meskipum kaka menyebalkan >:(. tapi aku suka:)
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <button
+    class="back"
+    onclick="location.reload()"
+  >
+    ↻ lihat dari awal
+  </button>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<script>
+
+function openLetter(){
+
+  document.getElementById("home").style.display="none";
+
+  document.getElementById("letter").style.display="block";
+
+  window.scrollTo(0,0);
+
+}
+
+
+function showFinal(){
+
+  document.getElementById("final").style.display="block";
+
+  setTimeout(function(){
+
+    document.getElementById("final").scrollIntoView({
+      behavior:"smooth"
+    });
+
+  },100);
+
+}
+
+</script>
+
+
+</body>
+</html>
