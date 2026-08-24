@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Little Place For You ♡</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+}
+
+html,body{
+  margin:0;
+  padding:0;
+  width:100%;
+  min-height:100%;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  color:#704d5b;
+  background:linear-gradient(
+    180deg,
+    #f4b9d2 0%,
+    #f7c5d0 35%,
+    #ffd3b0 68%,
+    #ffe7b0 100%
+  );
+  overflow-x:hidden;
+}
+
+
+/* =====================
+   LANGIT
+===================== */
+
+.sky{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+}
+
+
+/* matahari */
+
+.sun{
+  position:absolute;
+
+  width:155px;
+  height:155px;
+
+  border-radius:50%;
+
+  background:#ffe5a5;
+
+  left:50%;
+  top:47%;
+
+  transform:translate(-50%,-50%);
+
+  box-shadow:
+    0 0 70px rgba(255,230,170,.8);
+}
+
+
+/* bulan */
+
+.moon{
+  position:absolute;
+
+  width:48px;
+  height:48px;
+
+  right:12%;
+  top:8%;
+
+  background:#fff1ca;
+
+  border-radius:50%;
+
+  box-shadow:
+    0 0 30px rgba(255,255,255,.7);
+}
+
+.moon:after{
+  content:"";
+
+  position:absolute;
+
+  width:44px;
+  height:44px;
+
+  border-radius:50%;
+
+  background:#f4b9d2;
+
+  left:14px;
+  top:-7px;
+}
+
+
+/* bintang */
+
+.star{
+  position:absolute;
+
+  color:white;
+
+  font-size:15px;
+
+  opacity:.8;
+
+  animation:blink 2s infinite;
+}
+
+.s1{
+  top:10%;
+  left:13%;
+}
+
+.s2{
+
